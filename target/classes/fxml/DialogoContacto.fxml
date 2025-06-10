@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="com.calltech.controladores.DialogoContactoController"
+            stylesheets="/css/estilo.css">
+    
+    <headerText>
+        Nuevo Contacto
+    </headerText>
+    
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            
+            <!-- Nombre -->
+            <Label text="Nombre: *" styleClass="campo-requerido"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="campoNombre" promptText="Ingrese el nombre"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <!-- Teléfono -->
+            <Label text="Teléfono: *" styleClass="campo-requerido"
+                   GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="campoTelefono" promptText="Ingrese el teléfono"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <!-- Correo -->
+            <Label text="Correo:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="campoCorreo" promptText="Ingrese el correo electrónico"
+                      GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <!-- Dirección -->
+            <Label text="Dirección:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="campoDireccion" promptText="Ingrese la dirección"
+                      GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            
+            <!-- Notas -->
+            <Label text="Notas:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextArea fx:id="campoNotas" promptText="Ingrese notas adicionales"
+                     wrapText="true" prefRowCount="3"
+                     GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                     
+            <!-- Mensaje de campos requeridos -->
+            <Label text="* Campos requeridos" styleClass="texto-ayuda"
+                   GridPane.columnIndex="0" GridPane.rowIndex="5" 
+                   GridPane.columnSpan="2"/>
+                   
+            <columnConstraints>
+                <ColumnConstraints minWidth="100" prefWidth="100"/>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="300"/>
+            </columnConstraints>
+        </GridPane>
+    </content>
+    
+    <buttonTypes>
+        <ButtonType fx:constant="OK"/>
+        <ButtonType fx:constant="CANCEL"/>
+    </buttonTypes>
+    
+</DialogPane>
