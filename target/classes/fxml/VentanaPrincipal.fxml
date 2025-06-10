@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="com.calltech.controladores.VentanaPrincipalController"
+            stylesheets="/css/estilo.css">
+            
+    <!-- Barra superior con título y búsqueda -->
+    <top>
+        <VBox spacing="10" styleClass="header-container">
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="header">
+                <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                        <Image url="https://raw.githubusercontent.com/yourusername/calltech/main/src/main/resources/images/calltech-logo.png"/>
+                    </ImageView>
+                    <Label text="CallTech" styleClass="titulo"/>
+                </HBox>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="search-container">
+                <padding><Insets top="5" right="20" bottom="5" left="20"/></padding>
+                <TextField fx:id="campoBusqueda" promptText="Buscar contacto..." HBox.hgrow="ALWAYS"/>
+                <Button text="Buscar" onAction="#onBuscar" styleClass="button-search"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Tabla de contactos -->
+    <center>
+        <TableView fx:id="tablaContactos" styleClass="contact-table">
+            <columns>
+                <TableColumn fx:id="columnaNombre" text="Nombre" prefWidth="200"/>
+                <TableColumn fx:id="columnaTelefono" text="Teléfono" prefWidth="150"/>
+                <TableColumn fx:id="columnaCorreo" text="Correo" prefWidth="200"/>
+                <TableColumn fx:id="columnaDireccion" text="Dirección" prefWidth="200"/>
+            </columns>
+            <placeholder>
+                <Label text="No hay contactos para mostrar"/>
+            </placeholder>
+        </TableView>
+    </center>
+
+    <!-- Panel lateral para detalles -->
+    <right>
+        <VBox spacing="10" styleClass="details-panel">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            
+            <Label text="Detalles del Contacto" styleClass="section-title"/>
+            
+            <Label text="Nombre:"/>
+            <Label fx:id="labelNombre" styleClass="detail-value"/>
+            
+            <Label text="Teléfono:"/>
+            <Label fx:id="labelTelefono" styleClass="detail-value"/>
+            
+            <Label text="Correo:"/>
+            <Label fx:id="labelCorreo" styleClass="detail-value"/>
+            
+            <Label text="Dirección:"/>
+            <Label fx:id="labelDireccion" styleClass="detail-value"/>
+            
+            <Label text="Notas:"/>
+            <TextArea fx:id="areaNota" styleClass="detail-notes" editable="false" wrapText="true" prefRowCount="4"/>
+            
+            <Region VBox.vgrow="ALWAYS"/> <!-- Espaciador -->
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Nuevo Contacto" onAction="#onNuevoContacto" styleClass="button-primary"/>
+                <Button text="Editar" onAction="#onEditarContacto" styleClass="button-secondary"/>
+                <Button text="Eliminar" onAction="#onEliminarContacto" styleClass="button-danger"/>
+            </HBox>
+        </VBox>
+    </right>
+
+    <!-- Barra de estado -->
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
+            <Label fx:id="labelEstado" text="Listo"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>
